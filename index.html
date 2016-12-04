@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html ng-app="myApp" lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bulma.css">
   <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+  <script src="js/controller/main.js"></script>
   <title>HELLO!!</title>
 </head>
 <body>
@@ -48,18 +50,27 @@
     </nav>
   </header>
   <!-- main -->
-  <main>
-    <div class="container">
+  <main ng-controller="mainCtrl as main">
+    <!-- ▽各シーズン表示領域 -->
+    <div class="container" ng-repeat="season in main.data.info">
+      <!-- ▽シリーズ名 -->
       <div class="title">
-        <h1>シリーズ1</h1>
+        <h1>{{season.title}}</h1>
       </div>
+      <!-- △シリーズ名 -->
+      <!-- ▽メンバー表示領域 -->
       <div class="columns is-multiline">
-        <div class="card column is-3">
+        <!-- ▽各メンバーカード -->
+        <div class="card column is-3" ng-repeat="member in season.members">
+          <p>No.{{member.no}}</p>
+          <!-- ▽画像 -->
           <div class="card-image">
             <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
+              <img src={{member.url}} alt="">
             </figure>
           </div>
+          <!-- △画像 -->
+          <!-- ▽詳細情報 -->
           <div class="card-content">
             <div class="media">
               <div class="media-left">
@@ -68,254 +79,23 @@
                 </figure>
               </div>
               <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
+                <p class="title is-5">{{member.name}}</p>
+                <p class="subtitle is-6">{{member.read}}</p>
               </div>
             </div>
-
             <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
+              {{member.explain}}
               <br>
               <small>11:09 PM - 1 Jan 2016</small>
             </div>
           </div>
+          <!-- △詳細情報 -->
         </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
-        <div class="card column is-3">
-          <div class="card-image">
-            <figure class="image">
-              <img src="img/mascle.jpeg" alt="">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-        </div>
+        <!-- △各メンバーカード -->
       </div>
+      <!-- △メンバー表示領域 -->
     </div>
+    <!-- △各シーズン表示領域 -->
   </main>
   <!-- footer -->
   <footer class="footer">
