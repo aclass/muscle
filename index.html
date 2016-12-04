@@ -1,43 +1,107 @@
-<!doctype html>
-<html ng-app="myApp">
-  <head>
-    <meta charset=“utf-8”>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
-    <script src="js/controller/main.js"></script>
-    <link rel="stylesheet" href="figure.css" type="text/css">
-  </head>
-  <body>
-    <header style="background: red">
-      <div>
-        <p>header領域</p>
+<!DOCTYPE html>
+<html ng-app="myApp" lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bulma.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+  <script src="js/controller/main.js"></script>
+  <title>HELLO!!</title>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item is-brand" href="#">
+          <h1 class="title">キン肉マン</h1>
+        </a>
       </div>
-    </header>
-    <!-- 画像表示領域 -->
-    <div name="pic" ng-controller="mainCtrl as main">
-      <h1>グレートマッスル</h1>
-      <div ng-repeat="season in main.data.info">
-        <h2>{{season.title}}</h2>
-        <div class="kinkeshi">
-          <figure ng-repeat="member in season.members">
-            <figcaption class="no">No. {{member.no}}</figcaption>
-            <img src={{member.url}}>
-            <figcaption class="name">{{member.name}}</figcaption>
-          </figure>
+
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <div class="nav-right nav-menu">
+        <a class="nav-item" href="#">
+          Home
+        </a>
+        <a class="nav-item" href="#">
+          Documentation
+        </a>
+        <a class="nav-item" href="#">
+          Blog
+        </a>
+
+        <span class="nav-item">
+          <a class="button is-info" >
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+            <span>Tweet</span>
+          </a>
+        </span>
+      </div>
+    </nav>
+  </header>
+  <!-- main -->
+  <main ng-controller="mainCtrl as main">
+    <!-- ▽各シーズン表示領域 -->
+    <div class="container" ng-repeat="season in main.data.info">
+      <!-- ▽シリーズ名 -->
+      <div class="title">
+        <h1>{{season.title}}</h1>
+      </div>
+      <!-- △シリーズ名 -->
+      <!-- ▽メンバー表示領域 -->
+      <div class="columns is-multiline">
+        <!-- ▽各メンバーカード -->
+        <div class="card column is-3" ng-repeat="member in season.members">
+          <p>No.{{member.no}}</p>
+          <!-- ▽画像 -->
+          <div class="card-image">
+            <figure class="image">
+              <img src={{member.url}} alt="">
+            </figure>
+          </div>
+          <!-- △画像 -->
+          <!-- ▽詳細情報 -->
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-32x32">
+                  <img src="http://placehold.it/64x64" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-5">{{member.name}}</p>
+                <p class="subtitle is-6">{{member.read}}</p>
+              </div>
+            </div>
+            <div class="content">
+              {{member.explain}}
+              <br>
+              <small>11:09 PM - 1 Jan 2016</small>
+            </div>
+          </div>
+          <!-- △詳細情報 -->
         </div>
+        <!-- △各メンバーカード -->
       </div>
-      <!-- 画像表示領域 -->
-      <!-- インフォメーション -->
-      <div name="info">
-        <label>Name:</label>
-        <input type="text" ng-model="yourName" placeholder="あなたの名前を入力してください">
-        <h1>Hello {{yourName}}!</h1>
-      </div>
-      <!-- インフォメーション -->
+      <!-- △メンバー表示領域 -->
     </div>
-    <footer style="background: blue">
-      <div>
-        <p>footer領域</p>
-      </div>
-    </footer>
-  </body>
+    <!-- △各シーズン表示領域 -->
+  </main>
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright &#169; FUN-A all right reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>
