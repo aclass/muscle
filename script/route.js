@@ -5,6 +5,10 @@ angular.module('myApp',['ngRoute', 'ngAnimate'])
 		templateUrl:'views/top.html',
 		controller:'TopCtrl'
 	})
+	.when('/detail/:memberNomber',{
+		templateUrl:'views/detail.html',
+		controller:'DetailCtrl'
+	})
 	.otherwise({
 		redirectTo:'/'
 	})
