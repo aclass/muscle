@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html ng-app="myApp" lang="ja">
+<!doctype html>
+<html lang="ja" ng-app="myApp">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bulma.css">
-  <link rel="stylesheet" type="text/css" href="css/layout.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
-  <script src="js/controller/main.js"></script>
-  <title>HELLO!!</title>
+<meta http-equiv="Content-Type" charset="UTF-8" name="viewport" content="width=device-width">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bulma.css">
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+<script src="http://code.angularjs.org/1.4.1/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.min.js"></script>
+<script src="script/route.js"></script>
+<script src="script/top.js"></script>
+<script src="script/dataCharactors.js"></script>
+<title>キン肉マン</title>
 </head>
 <body>
-  <!-- header -->
-  <header>
+	<!-- ヘッダー -->
+	<header>
     <nav class="nav">
       <div class="nav-left">
         <a class="nav-item is-brand" href="#">
@@ -49,59 +52,16 @@
       </div>
     </nav>
   </header>
-  <!-- main -->
-  <main ng-controller="mainCtrl as main">
-    <!-- ▽各シーズン表示領域 -->
-    <div class="container" ng-repeat="season in main.data.info">
-      <!-- ▽シリーズ名 -->
-      <div class="title">
-        <h1>{{season.title}}</h1>
-      </div>
-      <!-- △シリーズ名 -->
-      <!-- ▽メンバー表示領域 -->
-      <div class="columns is-multiline">
-        <!-- ▽各メンバーカード -->
-        <div class="card column is-3" ng-repeat="member in season.members">
-          <p>No.{{member.no}}</p>
-          <!-- ▽画像 -->
-          <div class="card-image">
-            <figure class="image">
-              <img src={{member.url}} alt="">
-            </figure>
-          </div>
-          <!-- △画像 -->
-          <!-- ▽詳細情報 -->
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="http://placehold.it/64x64" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-5">{{member.name}}</p>
-                <p class="subtitle is-6">{{member.read}}</p>
-              </div>
-            </div>
-            <div class="content">
-              {{member.explain}}
-              <br>
-              <small>11:09 PM - 1 Jan 2016</small>
-            </div>
-          </div>
-          <!-- △詳細情報 -->
-        </div>
-        <!-- △各メンバーカード -->
-      </div>
-      <!-- △メンバー表示領域 -->
-    </div>
-    <!-- △各シーズン表示領域 -->
-  </main>
-  <!-- footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>Copyright &#169; FUN-A all right reserved.</p>
-    </div>
+	<!-- ヘッダー -->
+	<!-- 各ページ内容 -->
+	<article ng-view></article>
+	<!-- 各ページ内容 -->
+	<!-- フッター -->
+	<footer class="footer">
+	  <div class="container">
+	    <p>Copyright &#169; FUN-A all right reserved.</p>
+	  </div>
   </footer>
+	<!-- フッター -->
 </body>
 </html>
