@@ -18,52 +18,10 @@
 </head>
 <body>
 	<!-- ヘッダー -->
-	<header>
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item is-brand" href="#/">
-          <h1 class="title">キン肉マン</h1>
-        </a>
-      </div>
-
-      <span class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-
-      <div class="nav-right nav-menu">
-        <a class="nav-item" href="#">
-          Home
-        </a>
-        <a class="nav-item" href="#">
-          Documentation
-        </a>
-        <a class="nav-item" href="#">
-          Blog
-        </a>
-
-        <span class="nav-item">
-          <a class="button is-info" >
-            <span class="icon">
-              <i class="fa fa-twitter"></i>
-            </span>
-            <span>Tweet</span>
-          </a>
-        </span>
-      </div>
-    </nav>
-  </header>
-	<!-- ヘッダー -->
+	<ng-include src="'views/header.html'"></ng-include>
 	<!-- 各ページ内容 -->
 	<article ng-view></article>
-	<!-- 各ページ内容 -->
 	<!-- フッター -->
-	<footer class="footer">
-	  <div class="container">
-	    <p>Copyright &#169; FUN-A all right reserved.</p>
-	  </div>
-  </footer>
-	<!-- フッター -->
+	<ng-include src="'views/footer.html'"></ng-include>
 </body>
 </html>
