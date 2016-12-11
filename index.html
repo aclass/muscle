@@ -9,19 +9,19 @@
 <script src="http://code.angularjs.org/1.4.1/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.min.js"></script>
-<script src="script/route.js"></script>
-<script src="script/top.js"></script>
-<script src="script/detail.js"></script>
-<script src="script/dataCharactors.js"></script>
-<script src="script/dataDetail.js"></script>
+<script src="app/route.js"></script>
+<script src="app/controllers/top.js"></script>
+<script src="app/controllers/detail.js"></script>
+<script src="app/datas/top.js"></script>
+<script src="app/datas/detail.js"></script>
 <title>キン肉マン</title>
 </head>
 <body>
 	<!-- ヘッダー -->
-	<ng-include src="'views/header.html'"></ng-include>
+	<ng-include src="'app/views/header.html'"></ng-include>
 	<!-- 各ページ内容 -->
 	<article ng-view></article>
 	<!-- フッター -->
-	<ng-include src="'views/footer.html'"></ng-include>
+	<ng-include src="'app/views/footer.html'"></ng-include>
 </body>
 </html>

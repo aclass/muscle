@@ -2,11 +2,11 @@ angular.module('myApp',['ngRoute', 'ngAnimate'])
 .config(function($routeProvider){
 	$routeProvider
 	.when('/',{
-		templateUrl:'views/top.html',
+		templateUrl:'app/views/top.html',
 		controller:'TopCtrl'
 	})
 	.when('/detail/:memberNomber',{
-		templateUrl:'views/detail.html',
+		templateUrl:'app/views/detail.html',
 		controller:'DetailCtrl'
 	})
 	.otherwise({
