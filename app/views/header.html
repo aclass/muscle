@@ -1,0 +1,41 @@
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="nav-item is-brand" href="#/">
+        <h1 class="title">キン肉マン</h1>
+      </a>
+    </div>
+
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <div class="nav-right nav-menu">
+      <a class="nav-item" href="#">
+        Home
+      </a>
+      <a class="nav-item" href="#">
+        Documentation
+      </a>
+      <a class="nav-item" href="#">
+        Blog
+      </a>
+
+      <!-- Twitter -->
+      <ng-include src="'app/views/shareTwitter.html'" class="nav-item"></ng-include>
+      <!-- Facebook -->
+      <ng-include src="'app/views/shareFacebook.html'" class="nav-item"></ng-include>
+
+      <span class="nav-item">
+        <a class="button is-info" >
+          <span class="icon">
+            <i class="fa fa-twitter"></i>
+          </span>
+          <span>Tweet</span>
+        </a>
+      </span>
+    </div>
+  </nav>
+</header>

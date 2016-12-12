@@ -1,0 +1,47 @@
+<main ng-controller="TopCtrl">
+  <!-- ▽各シーズン表示領域 -->
+  <div class="container" ng-repeat="season in data">
+    <!-- ▽シリーズ名 -->
+    <div class="title">
+      <h1>{{season.title}}</h1>
+    </div>
+    <!-- △シリーズ名 -->
+    <!-- ▽メンバー表示領域 -->
+    <div class="columns is-multiline">
+      <!-- ▽各メンバーカード -->
+      <div class="card column is-3" ng-repeat="member in season.members">
+        <p>No.{{member.no}}</p>
+        <!-- ▽画像 -->
+        <div class="card-image">
+          <figure class="image">
+            <a href="#/detail/{{member.no}}"><img ng-src={{member.url}} alt=""></a>
+          </figure>
+        </div>
+        <!-- △画像 -->
+        <!-- ▽詳細情報 -->
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-32x32">
+                <img ng-src="http://placehold.it/64x64" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-5">{{member.name}}</p>
+              <p class="subtitle is-6">{{member.read}}</p>
+            </div>
+          </div>
+          <div class="content">
+            {{member.explain}}
+            <br>
+            <small>11:09 PM - 1 Jan 2016</small>
+          </div>
+        </div>
+        <!-- △詳細情報 -->
+      </div>
+      <!-- △各メンバーカード -->
+    </div>
+    <!-- △メンバー表示領域 -->
+  </div>
+  <!-- △各シーズン表示領域 -->
+</main>
