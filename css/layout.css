@@ -22,6 +22,11 @@ main .title {
   border-bottom: solid 1px #ccc;
 }
 
+/* 詳細ページ写真サイズ */
+.detail-pic {
+  height: 300px;
+}
+
 /* footer */
 .footer {
   width: 100%;
